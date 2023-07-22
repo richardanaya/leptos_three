@@ -1,5 +1,5 @@
 # leptos_fiber
-A prototype of creating a React Fiber like experience with Leptos and ThreeJS
+A prototype of creating a React Three Fiber like experience with Leptos and ThreeJS
 
 I wanted to show how i'd create an experience like
 
