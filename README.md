@@ -4,7 +4,7 @@ A prototype of creating a React Three Fiber like experience with Leptos and Thre
 
 I wanted to show how i'd create an experience like
 
-See the demo working [here](https://richardanaya.github.io/leptos_three_fiber/dist/index.html)
+See the demo working [here](https://richardanaya.github.io/leptos_three/example/dist/index.html)
 
 ```rust
 pub fn main() -> Result<(), JsValue> {
