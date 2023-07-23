@@ -30,4 +30,14 @@ pub fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 ```
 
+# How to run example?
+
+```
+cd example
+cargo install trunk # if you don't have it
+trunk serve --open
+```
+
+# Screenshot
+
 <img width="1224" alt="Screenshot 2023-07-22 at 3 11 09 PM" src="https://github.com/richardanaya/leptos_fiber/assets/294042/c00fb781-06d6-485b-9b1e-c5f41b0456bc">
