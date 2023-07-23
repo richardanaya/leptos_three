@@ -18,6 +18,6 @@ pub fn Material(cx: Scope, #[prop(default = [1.0,1.0,1.0])] color: [f64; 3]) -> 
     });
 
     view! { cx,
-        None
+        <></>
     }
 }
