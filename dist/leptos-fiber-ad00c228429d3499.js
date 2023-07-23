@@ -1,8 +1,13 @@
+import { startCanvas } from './snippets/leptos-fiber-43268de8e18cffdd/src/canvas.js';
+import { createCube } from './snippets/leptos-fiber-43268de8e18cffdd/src/cube.js';
+
 let wasm;
 
 const heap = new Array(128).fill(undefined);
 
 heap.push(undefined, null, true, false);
+
+function getObject(idx) { return heap[idx]; }
 
 let heap_next = heap.length;
 
@@ -14,8 +19,6 @@ function addHeapObject(obj) {
     heap[idx] = obj;
     return idx;
 }
-
-function getObject(idx) { return heap[idx]; }
 
 const cachedTextDecoder = (typeof TextDecoder !== 'undefined' ? new TextDecoder('utf-8', { ignoreBOM: true, fatal: true }) : { decode: () => { throw Error('TextDecoder not available') } } );
 
@@ -200,7 +203,7 @@ function makeMutClosure(arg0, arg1, dtor, f) {
 
     return real;
 }
-function __wbg_adapter_18(arg0, arg1, arg2) {
+function __wbg_adapter_16(arg0, arg1, arg2) {
     wasm._dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h4caf1d303a48714f(arg0, arg1, addHeapObject(arg2));
 }
 
@@ -258,12 +261,16 @@ async function __wbg_load(module, imports) {
 function __wbg_get_imports() {
     const imports = {};
     imports.wbg = {};
-    imports.wbg.__wbindgen_number_new = function(arg0) {
-        const ret = arg0;
+    imports.wbg.__wbg_createCube_54418d747dbf99d6 = function(arg0, arg1, arg2, arg3) {
+        const ret = createCube(takeObject(arg0), arg1, arg2, arg3);
         return addHeapObject(ret);
     };
     imports.wbg.__wbindgen_object_clone_ref = function(arg0) {
         const ret = getObject(arg0);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_startCanvas_d703790f3810a095 = function(arg0) {
+        const ret = startCanvas(takeObject(arg0));
         return addHeapObject(ret);
     };
     imports.wbg.__wbindgen_is_undefined = function(arg0) {
@@ -405,11 +412,6 @@ function __wbg_get_imports() {
     imports.wbg.__wbg_append_4672bfcd9b84298e = function() { return handleError(function (arg0, arg1, arg2) {
         getObject(arg0).append(getObject(arg1), getObject(arg2));
     }, arguments) };
-    imports.wbg.__wbg_eval_8c72ad5eafe427f2 = function() { return handleError(function (arg0, arg1) {
-        var v0 = getCachedStringFromWasm0(arg0, arg1);
-        const ret = eval(v0);
-        return addHeapObject(ret);
-    }, arguments) };
     imports.wbg.__wbg_newnoargs_581967eacc0e2604 = function(arg0, arg1) {
         var v0 = getCachedStringFromWasm0(arg0, arg1);
         const ret = new Function(v0);
@@ -417,14 +419,6 @@ function __wbg_get_imports() {
     };
     imports.wbg.__wbg_call_cb65541d95d71282 = function() { return handleError(function (arg0, arg1) {
         const ret = getObject(arg0).call(getObject(arg1));
-        return addHeapObject(ret);
-    }, arguments) };
-    imports.wbg.__wbg_call_01734de55d61e11d = function() { return handleError(function (arg0, arg1, arg2) {
-        const ret = getObject(arg0).call(getObject(arg1), getObject(arg2));
-        return addHeapObject(ret);
-    }, arguments) };
-    imports.wbg.__wbg_call_776890ca77946e2f = function() { return handleError(function (arg0, arg1, arg2, arg3, arg4) {
-        const ret = getObject(arg0).call(getObject(arg1), getObject(arg2), getObject(arg3), getObject(arg4));
         return addHeapObject(ret);
     }, arguments) };
     imports.wbg.__wbg_is_205d914af04a8faa = function(arg0, arg1) {
@@ -460,8 +454,8 @@ function __wbg_get_imports() {
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
-    imports.wbg.__wbindgen_closure_wrapper1044 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 145, __wbg_adapter_18);
+    imports.wbg.__wbindgen_closure_wrapper1042 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 145, __wbg_adapter_16);
         return addHeapObject(ret);
     };
 
@@ -502,7 +496,7 @@ async function __wbg_init(input) {
     if (wasm !== undefined) return wasm;
 
     if (typeof input === 'undefined') {
-        input = new URL('leptos-tutorial-fd77bb0bc4406db5_bg.wasm', import.meta.url);
+        input = new URL('leptos-fiber-ad00c228429d3499_bg.wasm', import.meta.url);
     }
     const imports = __wbg_get_imports();
 
