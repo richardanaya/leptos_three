@@ -1,10 +1,10 @@
-# leptos_fiber
+# leptos_three_fiber
 
 A prototype of creating a React Three Fiber like experience with Leptos and ThreeJS
 
 I wanted to show how i'd create an experience like
 
-See the demo working [here](https://richardanaya.github.io/leptos_fiber/dist/index.html)
+See the demo working [here](https://richardanaya.github.io/leptos_three_fiber/dist/index.html)
 
 ```rust
 pub fn main() -> Result<(), JsValue> {
