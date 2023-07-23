@@ -1,8 +1,7 @@
 use leptos::*;
 use leptos_three::*;
-use wasm_bindgen::prelude::*;
 
-pub fn main() -> Result<(), JsValue> {
+pub fn main() -> Result<(), Box<dyn std::error::Error>> {
     mount_to_body(|cx| {
         view! { cx,  <div style="width: 100%; height:100%;">
             <Canvas>
