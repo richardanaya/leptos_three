@@ -1,4 +1,4 @@
-# leptos_three_fiber
+# leptos_three
 
 A prototype of creating a React Three Fiber like experience with Leptos and ThreeJS
 
