@@ -8,7 +8,11 @@ extern "C" {
 }
 
 #[component]
-pub fn Cube(cx: Scope, children: Children, position: [f64; 3]) -> impl IntoView {
+pub fn Cube(
+    cx: Scope,
+    children: Children,
+    #[prop(default = [0.0,0.0,0.0])] position: [f64; 3],
+) -> impl IntoView {
     let scene = use_context::<providers::SceneContext>(cx).unwrap().0;
 
     let (object3d, set_object3d) = create_signal::<Option<JsValue>>(cx, None);

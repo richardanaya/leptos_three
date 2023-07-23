@@ -8,7 +8,7 @@ extern "C" {
 }
 
 #[component]
-pub fn Material(cx: Scope, color: [f64; 3]) -> impl IntoView {
+pub fn Material(cx: Scope, #[prop(default = [1.0,1.0,1.0])] color: [f64; 3]) -> impl IntoView {
     let object3d = use_context::<providers::Object3DContext>(cx).unwrap().0;
 
     create_effect(cx, move |_| {
