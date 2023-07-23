@@ -8,16 +8,23 @@ extern "C" {
 }
 
 #[component]
-pub fn Cube(cx: Scope, position: [f64; 3]) -> impl IntoView {
+pub fn Cube(cx: Scope, children: Children, position: [f64; 3]) -> impl IntoView {
     let scene = use_context::<providers::SceneContext>(cx).unwrap().0;
+
+    let (object3d, set_object3d) = create_signal::<Option<JsValue>>(cx, None);
+
+    provide_context(cx, providers::Object3DContext(object3d));
 
     create_effect(cx, move |_| {
         if let Some(scene) = scene.get() {
-            createCube(scene, position[0], position[1], position[2]);
+            let o = createCube(scene, position[0], position[1], position[2]);
+            set_object3d.set(Some(o));
         }
     });
 
     view! { cx,
-        None
+            <>
+            {children(cx)}
+            </>
     }
 }

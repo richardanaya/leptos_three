@@ -1,8 +1,7 @@
 export function createCube(scene, x, y, z) {
   // add cube to scene
   const geometry = new THREE.BoxGeometry();
-  const color = Math.random() * 0xffffff;
-  const material = new THREE.MeshBasicMaterial({ color });
+  const material = new THREE.MeshBasicMaterial();
   const cube = new THREE.Mesh(geometry, material);
   cube.position.x = x;
   cube.position.y = y;
@@ -15,4 +14,6 @@ export function createCube(scene, x, y, z) {
     cube.rotation.y += 0.01;
   };
   animate();
+
+  return cube;
 }

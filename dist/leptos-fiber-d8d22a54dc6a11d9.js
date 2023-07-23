@@ -1,5 +1,6 @@
 import { startCanvas } from './snippets/leptos-fiber-43268de8e18cffdd/src/canvas.js';
 import { createCube } from './snippets/leptos-fiber-43268de8e18cffdd/src/cube.js';
+import { attachMaterial } from './snippets/leptos-fiber-43268de8e18cffdd/src/material.js';
 
 let wasm;
 
@@ -261,6 +262,10 @@ async function __wbg_load(module, imports) {
 function __wbg_get_imports() {
     const imports = {};
     imports.wbg = {};
+    imports.wbg.__wbg_attachMaterial_a930f23eadfae557 = function(arg0, arg1, arg2, arg3) {
+        const ret = attachMaterial(takeObject(arg0), arg1, arg2, arg3);
+        return addHeapObject(ret);
+    };
     imports.wbg.__wbg_createCube_54418d747dbf99d6 = function(arg0, arg1, arg2, arg3) {
         const ret = createCube(takeObject(arg0), arg1, arg2, arg3);
         return addHeapObject(ret);
@@ -454,8 +459,8 @@ function __wbg_get_imports() {
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
-    imports.wbg.__wbindgen_closure_wrapper1042 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 145, __wbg_adapter_16);
+    imports.wbg.__wbindgen_closure_wrapper1152 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 173, __wbg_adapter_16);
         return addHeapObject(ret);
     };
 
@@ -496,7 +501,7 @@ async function __wbg_init(input) {
     if (wasm !== undefined) return wasm;
 
     if (typeof input === 'undefined') {
-        input = new URL('leptos-fiber-ad00c228429d3499_bg.wasm', import.meta.url);
+        input = new URL('leptos-fiber-d8d22a54dc6a11d9_bg.wasm', import.meta.url);
     }
     const imports = __wbg_get_imports();
 
