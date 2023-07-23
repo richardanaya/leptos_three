@@ -1,6 +1,6 @@
-import { startCanvas } from './snippets/leptos-fiber-43268de8e18cffdd/src/canvas.js';
-import { createCube } from './snippets/leptos-fiber-43268de8e18cffdd/src/cube.js';
-import { attachMaterial } from './snippets/leptos-fiber-43268de8e18cffdd/src/material.js';
+import { startCanvas } from './snippets/leptos_three-decbe333a926acf3/src/canvas.js';
+import { createCube } from './snippets/leptos_three-decbe333a926acf3/src/cube.js';
+import { attachMaterial } from './snippets/leptos_three-decbe333a926acf3/src/material.js';
 
 let wasm;
 
@@ -205,7 +205,7 @@ function makeMutClosure(arg0, arg1, dtor, f) {
     return real;
 }
 function __wbg_adapter_16(arg0, arg1, arg2) {
-    wasm._dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h4caf1d303a48714f(arg0, arg1, addHeapObject(arg2));
+    wasm._dyn_core__ops__function__FnMut__A____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__he861868cbf1a81b3(arg0, arg1, addHeapObject(arg2));
 }
 
 function isLikeNone(x) {
@@ -262,19 +262,19 @@ async function __wbg_load(module, imports) {
 function __wbg_get_imports() {
     const imports = {};
     imports.wbg = {};
-    imports.wbg.__wbg_attachMaterial_a930f23eadfae557 = function(arg0, arg1, arg2, arg3) {
-        const ret = attachMaterial(takeObject(arg0), arg1, arg2, arg3);
-        return addHeapObject(ret);
-    };
-    imports.wbg.__wbg_createCube_54418d747dbf99d6 = function(arg0, arg1, arg2, arg3) {
-        const ret = createCube(takeObject(arg0), arg1, arg2, arg3);
-        return addHeapObject(ret);
-    };
     imports.wbg.__wbindgen_object_clone_ref = function(arg0) {
         const ret = getObject(arg0);
         return addHeapObject(ret);
     };
-    imports.wbg.__wbg_startCanvas_d703790f3810a095 = function(arg0) {
+    imports.wbg.__wbg_createCube_24343da40552938f = function(arg0, arg1, arg2, arg3) {
+        const ret = createCube(takeObject(arg0), arg1, arg2, arg3);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_attachMaterial_072531f87debbd3c = function(arg0, arg1, arg2, arg3) {
+        const ret = attachMaterial(takeObject(arg0), arg1, arg2, arg3);
+        return addHeapObject(ret);
+    };
+    imports.wbg.__wbg_startCanvas_c625ea1b98cef48e = function(arg0) {
         const ret = startCanvas(takeObject(arg0));
         return addHeapObject(ret);
     };
@@ -331,11 +331,6 @@ function __wbg_get_imports() {
         const ret = getObject(arg0).createElement(v0);
         return addHeapObject(ret);
     }, arguments) };
-    imports.wbg.__wbg_createTextNode_2fd22cd7e543f938 = function(arg0, arg1, arg2) {
-        var v0 = getCachedStringFromWasm0(arg1, arg2);
-        const ret = getObject(arg0).createTextNode(v0);
-        return addHeapObject(ret);
-    };
     imports.wbg.__wbg_getElementById_cc0e0d931b0d9a28 = function(arg0, arg1, arg2) {
         var v0 = getCachedStringFromWasm0(arg1, arg2);
         const ret = getObject(arg0).getElementById(v0);
@@ -459,8 +454,8 @@ function __wbg_get_imports() {
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
-    imports.wbg.__wbindgen_closure_wrapper1152 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 173, __wbg_adapter_16);
+    imports.wbg.__wbindgen_closure_wrapper1166 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 176, __wbg_adapter_16);
         return addHeapObject(ret);
     };
 
@@ -501,7 +496,7 @@ async function __wbg_init(input) {
     if (wasm !== undefined) return wasm;
 
     if (typeof input === 'undefined') {
-        input = new URL('leptos-fiber-d8d22a54dc6a11d9_bg.wasm', import.meta.url);
+        input = new URL('leptos_three_example-18d3cd8fba923530_bg.wasm', import.meta.url);
     }
     const imports = __wbg_get_imports();
 

@@ -661,9 +661,9 @@ checksum = "71dd52191aae121e8611f1e8dc3e324dd0dd1dee1e6dd91d10ee07a3cfb4d9d8"
 
 [[package]]
 name = "inventory"
-version = "0.3.11"
+version = "0.3.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a53088c87cf71c9d4f3372a2cb9eea1e7b8a0b1bf8b7f7d23fe5b76dbb07e63b"
+checksum = "59c01ab27b36b668b4719ad000ced6ba3c3338f6793486449f2bd7ea96457f35"
 
 [[package]]
 name = "ipnet"
@@ -727,6 +727,17 @@ dependencies = [
  "server_fn",
  "tracing",
  "typed-builder",
+]
+
+[[package]]
+name = "leptos-fiber"
+version = "0.1.0"
+dependencies = [
+ "js-sys",
+ "leptos",
+ "thiserror",
+ "wasm-bindgen",
+ "web-sys",
 ]
 
 [[package]]
@@ -850,24 +861,6 @@ dependencies = [
  "server_fn",
  "thiserror",
  "tracing",
-]
-
-[[package]]
-name = "leptos_three"
-version = "0.1.0"
-dependencies = [
- "leptos",
- "wasm-bindgen",
- "web-sys",
-]
-
-[[package]]
-name = "leptos_three_example"
-version = "0.1.0"
-dependencies = [
- "leptos",
- "leptos_three",
- "wasm-bindgen",
 ]
 
 [[package]]
@@ -1193,9 +1186,9 @@ dependencies = [
 
 [[package]]
 name = "quote"
-version = "1.0.32"
+version = "1.0.31"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "50f3b39ccfb720540debaa0164757101c08ecb8d326b15358ce76a62c7e85965"
+checksum = "5fe8a65d69dd0808184ebb5f836ab526bb259db23c657efa38711b1072ee47f0"
 dependencies = [
  "proc-macro2",
 ]

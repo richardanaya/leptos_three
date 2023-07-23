@@ -1,15 +1,6 @@
 use leptos::*;
+use leptos_three::*;
 use wasm_bindgen::prelude::*;
-
-mod canvas;
-mod cube;
-mod material;
-mod providers;
-mod util;
-
-use canvas::*;
-use cube::*;
-use material::*;
 
 pub fn main() -> Result<(), JsValue> {
     mount_to_body(|cx| {

@@ -862,15 +862,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "leptos_three_example"
-version = "0.1.0"
-dependencies = [
- "leptos",
- "leptos_three",
- "wasm-bindgen",
-]
-
-[[package]]
 name = "libc"
 version = "0.2.147"
 source = "registry+https://github.com/rust-lang/crates.io-index"
