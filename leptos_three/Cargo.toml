@@ -4,6 +4,7 @@ version = "0.0.0"
 edition = "2021"
 description = "A Leptos library for Three.js"
 license = "MIT"
+repository = "https://github.com/richardanaya/leptos_three"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
