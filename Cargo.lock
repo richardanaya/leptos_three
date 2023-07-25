@@ -865,9 +865,11 @@ dependencies = [
 name = "leptos_three_example"
 version = "0.1.0"
 dependencies = [
+ "js-sys",
  "leptos",
  "leptos_three",
  "wasm-bindgen",
+ "web-sys",
 ]
 
 [[package]]
