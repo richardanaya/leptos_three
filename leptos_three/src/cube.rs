@@ -1,11 +1,7 @@
 use crate::providers;
+use crate::three::*;
 use leptos::*;
-use wasm_bindgen::prelude::*;
-
-#[wasm_bindgen(module = "/src/cube.js")]
-extern "C" {
-    fn createCube(scene: JsValue, x: f64, y: f64, z: f64) -> JsValue;
-}
+use std::rc::Rc;
 
 #[component]
 pub fn Cube(
@@ -15,14 +11,20 @@ pub fn Cube(
 ) -> impl IntoView {
     let scene = use_context::<providers::SceneContext>(cx).unwrap().0;
 
-    let (object3d, set_object3d) = create_signal::<Option<JsValue>>(cx, None);
+    let (object3d, set_object3d) = create_signal::<Option<Rc<Mesh>>>(cx, None);
 
     provide_context(cx, providers::Object3DContext(object3d));
 
     create_effect(cx, move |_| {
         if let Some(scene) = scene.get() {
-            let o = createCube(scene, position[0], position[1], position[2]);
-            set_object3d.set(Some(o));
+            let mat = MeshBasicMaterial::new();
+            let geo = BoxGeometry::new();
+            let mesh = Mesh::new(geo, mat);
+            mesh.position().set_x(position[0]);
+            mesh.position().set_y(position[1]);
+            mesh.position().set_z(position[2]);
+            scene.add(&mesh);
+            set_object3d.set(Some(Rc::new(mesh)));
         }
     });
 

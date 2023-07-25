@@ -1,28 +1,26 @@
-use crate::providers;
-use crate::util;
+use crate::{providers, Scene};
 use leptos::*;
+use std::rc::Rc;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen(module = "/src/canvas.js")]
 extern "C" {
-    fn startCanvas(canvas: JsValue) -> JsValue;
+    fn startCanvas(canvas: JsValue, scene: Scene) -> Scene;
 }
 
 #[component]
 pub fn Canvas(cx: Scope, children: Children) -> impl IntoView {
     let input_ref = create_node_ref(cx);
-    let (scene, set_scene) = create_signal::<Option<JsValue>>(cx, None);
+    let (scene, set_scene) = create_signal::<Option<Rc<Scene>>>(cx, None);
 
     provide_context(cx, providers::SceneContext(scene));
 
     input_ref.on_load(cx, move |element| {
-        util::on_load_threejs(move |_| {
-            let element: &web_sys::HtmlCanvasElement = &element;
-            let as_html_element = element.unchecked_ref::<web_sys::HtmlElement>();
-            let s = startCanvas(as_html_element.into());
-            set_scene.set(Some(s));
-        })
-        .unwrap();
+        let element: &web_sys::HtmlCanvasElement = &element;
+        let as_html_element = element.unchecked_ref::<web_sys::HtmlElement>();
+        let scene = Scene::new();
+        let s = startCanvas(as_html_element.into(), scene);
+        set_scene.set(Some(Rc::new(s)));
     });
 
     view! { cx,
