@@ -8,4 +8,3 @@ pub use canvas::*;
 pub use cube::*;
 pub use material::*;
 pub use providers::*;
-pub use three::*;

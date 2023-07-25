@@ -42,7 +42,7 @@ pub trait Geometry {
     fn into_wasm_abi(self) -> JsValue;
 }
 
-impl Geometry for BoxGeometry {
+impl Geometry for &BoxGeometry {
     fn into_wasm_abi(self) -> JsValue {
         self.into()
     }
@@ -52,7 +52,7 @@ pub trait Material {
     fn into_wasm_abi(self) -> JsValue;
 }
 
-impl Material for MeshBasicMaterial {
+impl Material for &MeshBasicMaterial {
     fn into_wasm_abi(self) -> JsValue {
         self.into()
     }
@@ -120,5 +120,32 @@ extern "C" {
     pub fn new_with_rgb(rgb: u32) -> Color;
 
     #[wasm_bindgen(constructor, js_name = "new")]
+    pub fn new_with_rgb_components(r: f64, g: f64, b: f64) -> Color;
+
+    #[wasm_bindgen(constructor, js_name = "new")]
     pub fn new_with_str(s: &str) -> Color;
+}
+
+//PerspectiveCamera
+#[wasm_bindgen(module = "/src/three.js")]
+extern "C" {
+    pub type PerspectiveCamera;
+
+    #[wasm_bindgen(constructor)]
+    pub fn new(fov: f64, aspect: f64, near: f64, far: f64) -> PerspectiveCamera;
+
+    // position
+
+    #[wasm_bindgen(method, getter)]
+    pub fn position(this: &PerspectiveCamera) -> Vector3;
+
+    // set_position
+
+    #[wasm_bindgen(method, setter)]
+    pub fn set_position(this: &PerspectiveCamera, pos: &Vector3);
+
+    // look_at
+
+    #[wasm_bindgen(method)]
+    pub fn look_at(this: &PerspectiveCamera, pos: &Vector3);
 }

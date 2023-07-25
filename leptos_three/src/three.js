@@ -5,3 +5,4 @@ export const Mesh = THREE.Mesh;
 export const Vector3 = THREE.Vector3;
 export const Scene = THREE.Scene;
 export const Color = THREE.Color;
+export const PerspectiveCamera = THREE.PerspectiveCamera;

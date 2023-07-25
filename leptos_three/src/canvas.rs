@@ -1,11 +1,12 @@
-use crate::{providers, Scene};
+use crate::providers;
+use crate::three::*;
 use leptos::*;
 use std::rc::Rc;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen(module = "/src/canvas.js")]
 extern "C" {
-    fn startCanvas(canvas: JsValue, scene: Scene) -> Scene;
+    fn startCanvas(canvas: JsValue, camera: PerspectiveCamera, scene: Scene) -> Scene;
 }
 
 #[component]
@@ -19,7 +20,11 @@ pub fn Canvas(cx: Scope, children: Children) -> impl IntoView {
         let element: &web_sys::HtmlCanvasElement = &element;
         let as_html_element = element.unchecked_ref::<web_sys::HtmlElement>();
         let scene = Scene::new();
-        let s = startCanvas(as_html_element.into(), scene);
+        let client_width = as_html_element.client_width() as f64;
+        let client_height = as_html_element.client_height() as f64;
+        let camera = PerspectiveCamera::new(75.0, client_width / client_height, 0.1, 1000.0);
+        camera.position().set_z(5.0);
+        let s = startCanvas(as_html_element.into(), camera.into(), scene);
         set_scene.set(Some(Rc::new(s)));
     });
 

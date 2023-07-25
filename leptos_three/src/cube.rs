@@ -19,7 +19,7 @@ pub fn Cube(
         if let Some(scene) = scene.get() {
             let mat = MeshBasicMaterial::new();
             let geo = BoxGeometry::new();
-            let mesh = Mesh::new(geo, mat);
+            let mesh = Mesh::new(&geo, &mat);
             mesh.position().set_x(position[0]);
             mesh.position().set_y(position[1]);
             mesh.position().set_z(position[2]);
