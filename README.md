@@ -48,3 +48,10 @@ trunk serve --open
 # Screenshot
 
 <img width="1224" alt="Screenshot 2023-07-22 at 3 11 09 PM" src="https://github.com/richardanaya/leptos_fiber/assets/294042/c00fb781-06d6-485b-9b1e-c5f41b0456bc">
+
+# License
+
+This project is licensed under and open to contribution
+
+ * MIT license ([LICENSE-MIT](LICENSE-MIT) 
+   http://opensource.org/licenses/MIT)
