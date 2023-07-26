@@ -36,6 +36,7 @@ pub fn main() -> Result<(), Box<dyn std::error::Error>> {
 * Physically based rendering first. Use defaults for PBR and make PBR a priority in terms of typing
 * Be inspired by React Three Fiber, but use leptos concepts and strong typing where possible
 * Support WebXR
+* Support WebGPU
 
 # How to run example?
 
