@@ -14,14 +14,15 @@ pub fn main() -> Result<(), Box<dyn std::error::Error>> {
     mount_to_body(|cx| {
         view! { cx,  <div style="width: 100%; height:100%;">
             <Canvas>
+                <AmbientLight color=[1.0,1.0,1.0] intensity={0.5} />
                 <Cube position={[3.0, 0.0, 0.0]} >
-                    <Material color=[1.0, 0.0, 0.0]/>
+                    <Material color={[1.0, 0.0, 0.0]}/>
                 </Cube>
                 <Cube position={[0.0, 0.0, 0.0]} >
-                    <Material color=[0.0, 1.0, 0.0]/>
+                    <Material color={[0.0, 1.0, 0.0]}/>
                 </Cube>
                 <Cube position={[-3.0, 0.0, 0.0]} >
-                    <Material color=[0.0, 0.0, 1.0]/>
+                    <Material color={[0.0, 0.0, 1.0]}/>
                 </Cube>
             </Canvas>
         </div> }
@@ -29,6 +30,12 @@ pub fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 ```
+
+# Project principles
+
+* Physically based rendering first. Use defaults for PBR and make PBR a priority in terms of typing
+* Be inspired by React Three Fiber, but use leptos concepts and strong typing where possible
+* Support WebXR
 
 # How to run example?
 
