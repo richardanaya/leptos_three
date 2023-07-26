@@ -22,7 +22,8 @@ pub fn App(cx: Scope) -> impl IntoView {
     a.forget();
 
     view! { cx,
-        <Canvas>
+            <Canvas>
+                <AmbientLight color=[1.0,1.0,1.0] intensity={0.5}/>
                 <Cube position={[3.0, 0.0, 0.0]} >
                     <Material color={r_pos}/>
                 </Cube>

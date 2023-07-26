@@ -10,14 +10,14 @@ extern "C" {
 
 #[wasm_bindgen(module = "/src/three.js")]
 extern "C" {
-    pub type MeshBasicMaterial;
+    pub type MeshStandardMaterial;
 
     #[wasm_bindgen(constructor)]
-    pub fn new() -> MeshBasicMaterial;
+    pub fn new() -> MeshStandardMaterial;
 
     // color
     #[wasm_bindgen(method, setter, js_name = "color")]
-    pub fn set_color(this: &MeshBasicMaterial, color: Color);
+    pub fn set_color(this: &MeshStandardMaterial, color: Color);
 }
 
 #[wasm_bindgen(module = "/src/three.js")]
@@ -48,13 +48,33 @@ impl Geometry for &BoxGeometry {
     }
 }
 
+pub trait Light {
+    fn into_wasm_abi(self) -> JsValue;
+}
+
+impl Light for &AmbientLight {
+    fn into_wasm_abi(self) -> JsValue {
+        self.into()
+    }
+}
+
 pub trait Material {
     fn into_wasm_abi(self) -> JsValue;
 }
 
-impl Material for &MeshBasicMaterial {
+impl Material for &MeshStandardMaterial {
     fn into_wasm_abi(self) -> JsValue {
         self.into()
+    }
+}
+
+impl Scene {
+    pub fn add(&self, mesh: &Mesh) {
+        self.add_with_mesh(mesh);
+    }
+
+    pub fn add_with_light(&self, light: impl Light) {
+        self.add_with_light_raw(light.into_wasm_abi());
     }
 }
 
@@ -108,8 +128,11 @@ extern "C" {
 
     // add
 
-    #[wasm_bindgen(method)]
-    pub fn add(this: &Scene, object: &Mesh);
+    #[wasm_bindgen(method, js_name = "add")]
+    pub fn add_with_mesh(this: &Scene, object: &Mesh);
+
+    #[wasm_bindgen(method, js_name = "add")]
+    fn add_with_light_raw(this: &Scene, object: JsValue);
 }
 
 #[wasm_bindgen(module = "/src/three.js")]
@@ -148,4 +171,14 @@ extern "C" {
 
     #[wasm_bindgen(method)]
     pub fn look_at(this: &PerspectiveCamera, pos: &Vector3);
+}
+
+//AmbientLight
+
+#[wasm_bindgen(module = "/src/three.js")]
+extern "C" {
+    pub type AmbientLight;
+
+    #[wasm_bindgen(constructor)]
+    pub fn new(color: Color, intensity: f64) -> AmbientLight;
 }

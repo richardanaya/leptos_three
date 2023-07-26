@@ -17,7 +17,7 @@ pub fn Cube(
 
     create_effect(cx, move |_| {
         if let Some(scene) = scene.get() {
-            let mat = MeshBasicMaterial::new();
+            let mat = MeshStandardMaterial::new();
             let geo = BoxGeometry::new();
             let mesh = Mesh::new(&geo, &mat);
             mesh.position().set_x(position[0]);

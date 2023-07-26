@@ -9,11 +9,11 @@ pub fn Material(
     #[prop(optional, into)] color: Option<MaybeSignal<[f64; 3]>>,
 ) -> impl IntoView {
     let object3d = use_context::<providers::Object3DContext>(cx).unwrap().0;
-    let (mat, set_mat) = create_signal::<Option<Rc<MeshBasicMaterial>>>(cx, None);
+    let (mat, set_mat) = create_signal::<Option<Rc<MeshStandardMaterial>>>(cx, None);
 
     create_effect(cx, move |_| {
         if let Some(o) = object3d.get() {
-            let mat = MeshBasicMaterial::new();
+            let mat = MeshStandardMaterial::new();
             o.set_material(&mat);
             set_mat.set(Some(Rc::new(mat)));
         }

@@ -1,5 +1,8 @@
 export function startCanvas(renderCanvas, camera, scene) {
   const renderer = new THREE.WebGLRenderer({ canvas: renderCanvas });
+  renderer.useLegacyLights = false;
+  renderer.outputColorSpace = "srgb-linear";
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.setSize(renderCanvas.clientWidth, renderCanvas.clientHeight);
   renderer.render(scene, camera);
 
